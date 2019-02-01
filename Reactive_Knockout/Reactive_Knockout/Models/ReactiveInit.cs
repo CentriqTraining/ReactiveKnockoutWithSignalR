@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Reactive_Knockout.Models
 {
-    public class ReactiveInit : DropCreateDatabaseAlways<MVC_ReactiveContext>
+    public class ReactiveInit : DropCreateDatabaseIfModelChanges<MVC_ReactiveContext>
     {
         protected override void Seed(MVC_ReactiveContext context)
         {

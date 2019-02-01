@@ -2,6 +2,25 @@
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
     background-color: #fff;
+    padding: 42px 22px 22px 22px;
+}
+
+.btn {
+    width: 100px;
+}
+
+td.edit {
+    padding: 0 !important;
+}
+
+.form-control:not(:focus) {
+    border: 1px  medium  rgba(68, 68, 68, .1);
+    border-radius: 3px;
+    color: black;
+    /*text-shadow: 1px 1px 4px #808080;*/
+}
+.form-control {
+    height: 26px !important;
 }
 
 header, footer, nav, section {

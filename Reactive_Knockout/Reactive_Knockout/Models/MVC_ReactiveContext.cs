@@ -7,7 +7,7 @@ namespace MVC_Reactive.Models
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
-        public MVC_ReactiveContext() 
+        public MVC_ReactiveContext() : base("DefaultConnection")
         {
             Database.SetInitializer<MVC_ReactiveContext>(new ReactiveInit());
         }

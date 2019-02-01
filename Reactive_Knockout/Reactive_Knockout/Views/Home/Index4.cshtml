@@ -11,7 +11,7 @@
     <img src="~/Images/loading.gif" alt="Loading Indicator" />
 
 </div>
-<table class="table" data-bind="visible: !loading()">
+<table class="table table-condensed" data-bind="visible: !loading()">
     <thead>
         <tr>
             <th></th>
@@ -29,7 +29,7 @@
 </table>
 
 <script type="text/html" id="readonly-mode">
-    <td><a class="btn btn-default" data-bind="click: $root.edit">Edit Employee</a></td>
+    <td class="btn btn-xs btn-default" data-bind="click: $root.edit">Edit Employee</td>
     <td data-bind="text: Id"></td>
     <td data-bind="text: FirstName"></td>
     <td data-bind="text: LastName"></td>
@@ -39,13 +39,13 @@
 </script>
 
 <script type="text/html" id="edit-mode">
-    <td><a class="btn btn-success" data-bind="click: $root.done">Done Editing</a></td>
+    <td class="btn btn-xs btn-success" data-bind="click: $root.done">Done Editing</td>
     <td data-bind="text: Id"></td>
-    <td><input data-bind="value: FirstName" /></td>
-    <td><input data-bind="value: LastName" /></td>
-    <td><input data-bind="value: Position" /></td>
-    <td><input data-bind="value: Salary" /></td>
-    <td><input data-bind="value: TerminationDate" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: FirstName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: LastName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: Position" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: Salary" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: TerminationDate" /></td>
 </script>
 
 @section scripts {

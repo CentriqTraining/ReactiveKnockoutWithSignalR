@@ -11,7 +11,7 @@ namespace MVC_Reactive.Controllers
         
         public ActionResult Index()
         {
-            return View("Index6");
+            return View("Index1");
         }
     }
 }

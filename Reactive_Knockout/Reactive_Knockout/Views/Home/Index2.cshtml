@@ -6,7 +6,7 @@
     <img src="~/Images/loading.gif" alt="Loading Indicator" />
 
 </div>
-<table class="table" data-bind="visible: !loading()">
+<table class="table table-condensed" data-bind="visible: !loading()">
     <thead>
         <tr>
             <th>Id</th>
@@ -37,12 +37,12 @@
 </script>
 
 <script type="text/html" id="edit-mode">
-    <td><input data-bind="value: Id" /></td>
-    <td><input data-bind="value: FirstName" /></td>
-    <td><input data-bind="value: LastName" /></td>
-    <td><input data-bind="value: Position" /></td>
-    <td><input data-bind="value: Salary" /></td>
-    <td><input data-bind="value: TerminationDate" /></td>
+    <td data-bind="text: Id"></td>
+    <td class="edit"><input class="form-control" data-bind="value: FirstName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: LastName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: Position" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: Salary" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: TerminationDate" /></td>
 </script>
 
 @section scripts {
