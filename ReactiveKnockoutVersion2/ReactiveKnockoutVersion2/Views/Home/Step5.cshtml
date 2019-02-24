@@ -1,0 +1,84 @@
+﻿<!-- Step 5 HTML Content -->
+<h1>Employee System</h1>
+<div class="text-secondary">
+    Now we add a lock button.  When the user clicks the edit button.  The row turns
+    editable for them and shows them the done button, but for everyone else, their row
+    will change to locked.  That row will stay read-only until
+    same button again and the row is set back to read-only. 
+    @Html.ActionLink("Open this data in a new tab", "Step5", null, new { target = "_blank" }),
+    and you can see the lock being engaged.
+    And issue exists.  If you close your browser when you have a record locked, it stays
+    locked forever.
+</div>
+<div class="DataInit" data-bind="visible: loading()">
+    <img src="~/Images/loading.gif" alt="Loading Indicator" />
+
+</div>
+<div class="table-responsive">
+    <table class="table employee-data" data-bind="visible: !loading()">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Date Terminated</th>
+            </tr>
+        </thead>
+        <!-- Now we are changing our template binding
+            to use an observable variable we create
+            based on if we are in edit or done mode -->
+        <tbody data-bind="foreach: employees">
+            <tr data-bind="template: { name: $root.displayMode, data: $data }"></tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/html" id="readonly-mode">
+    <!-- clicking this button puts us in edit mode -->
+    <td class="btn btn-xs btn-outline-secondary" data-bind="click: $root.edit">Edit</td>
+    <td class="text-right" data-bind="text: Id"></td>
+    <td data-bind="text: FirstName"></td>
+    <td data-bind="text: LastName"></td>
+    <td data-bind="text: Position"></td>
+    <td class="text-right" data-bind="text: Salary"></td>
+    <td data-bind="text: TerminationDate"></td>
+</script>
+
+<script type="text/html" id="edit-mode">
+    <!-- clicking this button removed edit mode -->
+    <td class="btn btn-xs btn-outline-success" data-bind="click: $root.done">Done</td>
+    <td class="text-right" data-bind="text: Id"></td>
+    <td class="edit"><input class="form-control" data-bind="value: FirstName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: LastName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: Position" /></td>
+    <td class="edit"><input class="form-control text-right" data-bind="value: Salary" /></td>
+    <td class="edit"><input class="form-control text-right" data-bind="value: TerminationDate" /></td>
+</script>
+
+<!-- Add a locked mode which will be chosen
+    to show the user someone else has
+    this record open for editing -->
+<script type="text/html" id="locked-mode">
+    <td class="btn btn-xs btn-danger" data-bind="data-name: LockHolder">Locked</td>
+    <td class="text-right" data-bind="text: Id"></td>
+    <td data-bind="text: FirstName"></td>
+    <td data-bind="text: LastName"></td>
+    <td data-bind="text: Position"></td>
+    <td class="text-right" data-bind="text: Salary"></td>
+    <td data-bind="text: TerminationDate"></td>
+</script>
+
+@section scripts {
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+
+    <!-- change the Employee View Model as you complete each step -->
+    <script src="~/App/Step5/EmployeeViewModel.js"></script>
+
+    <!--  Add these two during step 3 -->
+    <script src="~/Scripts/jquery.signalR-2.4.0.js"></script>
+    <script src="/signalr/hubs"></script>
+}
+

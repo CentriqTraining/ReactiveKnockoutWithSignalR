@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="container body-content">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                @{
+                    var step1 = "nav-link" + (ViewBag.Active1 != null ? " active" : "");
+                }
+                @Html.ActionLink("Step 1", "Step1", null, new { @class = step1 })
+            </li>
+            <li class="nav-item">
+                @{
+                    var step2 = "nav-link" + (ViewBag.Active2 != null ? " active" : "");
+                }
+                @Html.ActionLink("Step 2", "Step2", null, new { @class = step2 })
+            </li>
+            <li class="nav-item">
+                @{
+                    var step3 = "nav-link" + (ViewBag.Active3 != null ? " active" : "");
+                }
+                @Html.ActionLink("Step 3", "Step3", null, new { @class = step3 })
+            </li>
+            <li class="nav-item">
+                @{
+                    var step4 = "nav-link" + (ViewBag.Active4 != null ? " active" : "");
+                }
+                @Html.ActionLink("Step 4", "Step4", null, new { @class = step4 })
+            </li>
+            <li class="nav-item">
+                @{
+                    var step5 = "nav-link" + (ViewBag.Active5 != null ? " active" : "");
+                }
+                @Html.ActionLink("Step 5", "Step5", null, new { @class = step5 })
+            </li>
+            <li class="nav-item">
+                @{
+                    var step6 = "nav-link" + (ViewBag.Active6 != null ? " active" : "");
+                }
+                @Html.ActionLink("Step 6", "Step6", null, new { @class = step6 })
+            </li>
+                @Html.Partial("_LoginPartial")
+        </ul>
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!-- Step 1 HTML Content -->
+<h1>Employee System</h1>
+
+<div class="text-secondary">
+    Add the individual employee roles, starting to bind it all with knockout.js.  
+    The data in here is read-only for now.
+</div>
+
+<div class="DataInit" data-bind="visible: loading()">
+    <img src="~/Images/loading.gif" alt="Loading Indicator" />
+</div>
+<div class="table-responsive">
+    <table class="table employee-data" data-bind="visible: !loading()">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Date Terminated</th>
+            </tr>
+        </thead>
+
+        <tbody data-bind="foreach: employees">
+            <tr>
+                <!-- Here we use a text binding which sets the
+                    html for each td to what is in that property -->
+                <td class="text-right" data-bind="text: Id"></td>
+                <td data-bind="text: FirstName"></td>
+                <td data-bind="text: LastName"></td>
+                <td data-bind="text: Position"></td>
+                <td class="text-right" data-bind="text: Salary"></td>
+                <td data-bind="text: TerminationDate"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+    <script src="~/App/Step1/EmployeeViewModel.js"></script>
+}
+

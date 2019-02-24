@@ -1,0 +1,137 @@
+﻿body {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    padding: 42px 22px 22px 22px;
+}
+
+.btn {
+    width: 100px;
+}
+
+.employee-data tbody td {
+    border-left: 1px solid #1d96b2;
+    border-bottom: 1px solid #1d96b2;
+    text-align: center;
+}
+
+    .employee-data tbody td:last-of-type {
+        border-right: 1px solid #1d96b2;
+    }
+
+.employee-data tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+}
+
+.employee-data th,
+.employee-data td {
+    padding: .5em;
+    vertical-align: middle;
+}
+
+.employee-data th {
+    background-color: #1d96b2;
+    border: 1px solid #1d96b2;
+    font-weight: normal;
+    text-align: center;
+    color: white;
+    padding: 2px;
+}
+
+.employee-data tr {
+    max-height: 1em !important;
+}
+
+.employee-data td.edit {
+    padding: 1px !important;
+}
+
+.employee-data .form-control:not(:focus) {
+    border: 0;
+    border-radius: 0;
+    color: black;
+    box-shadow: none;
+    /*text-shadow: 1px 1px 4px #808080;*/
+}
+
+.employee-data .form-control {
+    height: 22px !important;
+    padding: 0 3px 0 3px !important;
+    margin: 0;
+}
+
+.employee-data td:not(.form-control) {
+    padding: 2px;
+}
+
+.table-condensed {
+    border-spacing: 0;
+}
+
+    .table-condensed td {
+        vertical-align: middle;
+    }
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.btn-xs {
+    padding: 0.15rem 0.15rem;
+    font-size: 0.675rem;
+    line-height: 1.25;
+    border-radius: 0.25rem;
+    width: 72px;
+    margin: 0 8px;
+}

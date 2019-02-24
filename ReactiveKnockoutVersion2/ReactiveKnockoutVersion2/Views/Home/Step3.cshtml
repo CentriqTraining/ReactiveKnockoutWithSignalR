@@ -1,0 +1,63 @@
+﻿<!-- Step 3 HTML Content -->
+<h1>Employee System</h1>
+<div class="text-secondary">
+    The data is still hard-coded as editable, but now we are adding signalR into the mix.
+    Any changes to a column are immediately sent up to the server to save.  At the
+    same time, a message is sent to our signalR HUB that tells the hub we just
+    changed the record, and the Hub will forward that message to all other connected
+    clients.  They will all simultaneously update their record to show the changes.
+    To test this, @Html.ActionLink("click here", "Step3", null, new { target = "_blank" })
+    to open this same data in two different browsers or tabs
+</div>
+
+<div class="DataInit" data-bind="visible: loading()">
+    <img src="~/Images/loading.gif" alt="Loading Indicator" />
+
+</div>
+<div class="table-responsive">
+    <table class="table employee-data" data-bind="visible: !loading()">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Date Terminated</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: employees">
+            <tr data-bind="template: { name: 'edit-mode', data: $data }"></tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/html" id="readonly-mode">
+    <td class="text-right" data-bind="text: Id"></td>
+    <td data-bind="text: FirstName"></td>
+    <td data-bind="text: LastName"></td>
+    <td data-bind="text: Position"></td>
+    <td class="text-right" data-bind="text: Salary"></td>
+    <td data-bind="text: TerminationDate"></td>
+</script>
+
+<script type="text/html" id="edit-mode">
+    <td class="text-right" data-bind="text: Id"></td>
+    <td class="edit"><input class="form-control" data-bind="value: FirstName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: LastName" /></td>
+    <td class="edit"><input class="form-control" data-bind="value: Position" /></td>
+    <td class="edit"><input class="form-control text-right" data-bind="value: Salary" /></td>
+    <td class="edit"><input class="form-control text-right" data-bind="value: TerminationDate" /></td>
+</script>
+
+@section scripts {
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+
+    <!-- change the Employee View Model as you complete each step -->
+    <script src="~/App/Step3/EmployeeViewModel.js"></script>
+
+    <!--  Add these two during step 3 -->
+    <script src="~/Scripts/jquery.signalR-2.4.0.js"></script>
+    <script src="/signalr/hubs"></script>
+}
+
